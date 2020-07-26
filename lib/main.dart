@@ -81,6 +81,32 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 ),
+                SizedBox(height: 10,),
+                Container(
+                  width: width*0.8,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(20.0),
+                    ),
+                  ),
+                  child: Row(
+                    children: <Widget>[
+                      IconButton(
+                        icon: Icon(Icons.color_lens),
+                        onPressed: (){
+
+                        },
+                      ),
+                      IconButton(
+                        icon: Icon(Icons.layers_clear),
+                        onPressed: (){
+                          
+                        },
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
