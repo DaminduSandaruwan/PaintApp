@@ -40,6 +40,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+
+    final double width = MediaQuery.of(context).size.width;
+    final double height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: Stack(
         children: <Widget>[
@@ -54,6 +58,30 @@ class _HomePageState extends State<HomePage> {
                   Color.fromRGBO(242, 113, 33, 1.0),
                 ],
               ),
+            ),
+          ),
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  width: width *0.8,
+                  height: height *0.8,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(20.0)
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.4),
+                        blurRadius: 5.0,
+                        spreadRadius: 1.0,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
         ],
