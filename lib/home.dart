@@ -10,7 +10,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
-  List<Offset> points = [];
+  List<DrawingArea> points = [];
   Color selectedColor;
   double strokeWidth;
 
@@ -93,14 +93,32 @@ class _HomePageState extends State<HomePage> {
                   child: GestureDetector(
                     onPanDown: (details){
                       this.setState(() {
-                        points.add(details.localPosition);
+                        points.add(
+                          DrawingArea(
+                            point: details.localPosition,
+                            areaPaint: Paint()
+                            ..strokeCap = StrokeCap.round
+                            ..isAntiAlias = true
+                            ..color = selectedColor
+                            ..strokeWidth = strokeWidth
+                          ),
+                        );
                       });
                     },
                     onPanUpdate:(details){
                       this.setState(() {
-                        points.add(details.localPosition);
+                        points.add(
+                          DrawingArea(
+                            point: details.localPosition,
+                            areaPaint: Paint()
+                            ..strokeCap = StrokeCap.round
+                            ..isAntiAlias = true
+                            ..color = selectedColor
+                            ..strokeWidth = strokeWidth
+                          ),
+                        );
                       });
-                    } ,
+                    },
                     onPanEnd: (details){
                       this.setState(() {
                         points.add(null);
@@ -112,8 +130,10 @@ class _HomePageState extends State<HomePage> {
                       ),
                       child: CustomPaint(
                         painter: MyCustomPainter(
-                          points: points
-                        ),
+                          color: selectedColor,
+                          points: points,
+                          strokeWidth: strokeWidth
+                        )
                       ),
                     ),
                   ),
@@ -168,3 +188,9 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
+class DrawingArea{
+  Offset point;
+  Paint areaPaint;
+
+  DrawingArea({this.point, this.areaPaint});
+}
