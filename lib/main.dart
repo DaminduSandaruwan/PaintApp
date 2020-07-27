@@ -80,6 +80,20 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ],
                   ),
+3                  child: GestureDetector(
+                    onPanDown: (details){
+
+                    },
+                    onPanUpdate:(details){
+
+                    } ,
+                    onPanEnd: (details){
+
+                    },
+                    child: CustomPaint(
+                      painter: MyCustomPainter(),
+                    ),
+                  ),
                 ),
                 SizedBox(height: 10,),
                 Container(
@@ -114,4 +128,19 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+}
+
+class MyCustomPainter extends CustomPainter{
+  @override
+  void paint(Canvas canvas, Size size) {
+      // TODO: implement paint
+    }
+  
+    @override
+    bool shouldRepaint(CustomPainter oldDelegate) {
+    // TODO: implement shouldRepaint
+    return null;
+  }
+  
+
 }
