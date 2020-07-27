@@ -80,7 +80,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ],
                   ),
-3                  child: GestureDetector(
+                  child: GestureDetector(
                     onPanDown: (details){
 
                     },
@@ -90,8 +90,13 @@ class _HomePageState extends State<HomePage> {
                     onPanEnd: (details){
 
                     },
-                    child: CustomPaint(
-                      painter: MyCustomPainter(),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(20.0)
+                      ),
+                      child: CustomPaint(
+                        painter: MyCustomPainter(),
+                      ),
                     ),
                   ),
                 ),
@@ -133,13 +138,16 @@ class _HomePageState extends State<HomePage> {
 class MyCustomPainter extends CustomPainter{
   @override
   void paint(Canvas canvas, Size size) {
-      // TODO: implement paint
+      Paint background = Paint()..color = Colors.white;
+      Rect rect = Rect.fromLTWH(0, 0, size.width, size.height);
+      canvas.drawRect(rect, background);
+
     }
   
     @override
     bool shouldRepaint(CustomPainter oldDelegate) {
     // TODO: implement shouldRepaint
-    return null;
+    return true;
   }
   
 
