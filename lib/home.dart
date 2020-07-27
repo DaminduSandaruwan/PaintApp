@@ -138,7 +138,9 @@ class _HomePageState extends State<HomePage> {
                       IconButton(
                         icon: Icon(Icons.layers_clear),
                         onPressed: (){
-                          
+                          this.setState(() { 
+                            points.clear();
+                          });
                         },
                       ),
                     ],
