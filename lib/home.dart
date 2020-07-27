@@ -135,6 +135,19 @@ class _HomePageState extends State<HomePage> {
                           selectColor();
                         },
                       ),
+                      Expanded(
+                        child: Slider(
+                          min: 1.0,
+                          max: 7.0,
+                          activeColor: selectedColor,
+                          value: strokeWidth,
+                          onChanged: (value){
+                            this.setState(() { 
+                              strokeWidth = value;
+                            });
+                          },
+                        ),
+                      ),
                       IconButton(
                         icon: Icon(Icons.layers_clear),
                         onPressed: (){
