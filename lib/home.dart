@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:paint_app/myCustomPainter.dart';
 
 class HomePage extends StatefulWidget {
@@ -10,6 +11,42 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
 
   List<Offset> points = [];
+  Color selectedColor;
+  double strokeWidth;
+
+  void selectColor(){
+    showDialog(
+      context: context,
+      child: AlertDialog(
+        title: const Text('Color Chooser'),
+        content: SingleChildScrollView(
+          child: BlockPicker(
+            pickerColor: selectedColor,
+            onColorChanged: (color){
+              this.setState(() { 
+                selectedColor = color;
+              });
+            },
+          ),
+        ),
+        actions: <Widget>[
+          FlatButton(
+            onPressed: (){
+              Navigator.of(context).pop();
+            },
+            child: Text("Close"),
+          ),
+        ],
+      ),
+    );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    selectedColor = Colors.black;
+    strokeWidth = 2.0;
+  }
 
   @override
   Widget build(BuildContext context) {
