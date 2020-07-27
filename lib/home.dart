@@ -130,9 +130,9 @@ class _HomePageState extends State<HomePage> {
                   child: Row(
                     children: <Widget>[
                       IconButton(
-                        icon: Icon(Icons.color_lens),
+                        icon: Icon(Icons.color_lens, color: selectedColor,),
                         onPressed: (){
-
+                          selectColor();
                         },
                       ),
                       IconButton(
