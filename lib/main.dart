@@ -38,6 +38,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  List<Offset> points = [];
+
   @override
   Widget build(BuildContext context) {
 
@@ -82,13 +85,19 @@ class _HomePageState extends State<HomePage> {
                   ),
                   child: GestureDetector(
                     onPanDown: (details){
-
+                      this.setState(() {
+                        points.add(details.localPosition);
+                      });
                     },
                     onPanUpdate:(details){
-
+                      this.setState(() {
+                        points.add(details.localPosition);
+                      });
                     } ,
                     onPanEnd: (details){
-
+                      this.setState(() {
+                        points.add(null);
+                      });
                     },
                     child: ClipRRect(
                       borderRadius: BorderRadius.all(
