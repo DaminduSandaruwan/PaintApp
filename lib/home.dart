@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
+import 'package:paint_app/drawingArea.dart';
 import 'package:paint_app/myCustomPainter.dart';
 
 class HomePage extends StatefulWidget {
@@ -158,7 +159,7 @@ class _HomePageState extends State<HomePage> {
                       Expanded(
                         child: Slider(
                           min: 1.0,
-                          max: 7.0,
+                          max: 20.0,
                           activeColor: selectedColor,
                           value: strokeWidth,
                           onChanged: (value){
