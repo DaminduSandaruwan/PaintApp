@@ -1,7 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:paint_app/home.dart';
+import 'package:paint_app/drawingArea.dart';
+
 
 class MyCustomPainter extends CustomPainter{
 
